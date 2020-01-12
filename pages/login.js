@@ -47,28 +47,34 @@ function Login() {
 
   return (
     <Layout>
-      <div className="login">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="username">GitHub username</label>
+      <div className="container section">
+        <div className="login">
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="username">GitHub username</label>
+            <div className="field">
+              <div className="control">
+                <input
+                  type="text"
+                  id="username"
+                  className="input"
+                  name="username"
+                  placeholder="username"
+                  value={userData.username}
+                  onChange={event =>
+                    setUserData(
+                      Object.assign({}, userData, { username: event.target.value })
+                    )
+                  }
+                />
+              </div>
+            </div>
 
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={userData.username}
-            onChange={event =>
-              setUserData(
-                Object.assign({}, userData, { username: event.target.value })
-              )
-            }
-          />
+            <button className="button is-primary" type="submit">Login</button>
 
-          <button type="submit">Login</button>
-
-          {userData.error && <p className="error">Error: {userData.error}</p>}
-        </form>
-      </div>
-      <style jsx>{`
+            {userData.error && <p className="error">Error: {userData.error}</p>}
+          </form>
+        </div>
+        <style jsx>{`
         .login {
           max-width: 340px;
           margin: 0 auto;
@@ -86,18 +92,12 @@ function Login() {
           font-weight: 600;
         }
 
-        input {
-          padding: 8px;
-          margin: 0.3rem 0 1rem;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-        }
-
         .error {
           margin: 0.5rem 0 0;
           color: brown;
         }
       `}</style>
+      </div>
     </Layout>
   )
 }

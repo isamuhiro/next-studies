@@ -11,12 +11,13 @@ const Profile = props => {
 
   return (
     <Layout>
-      <img src={avatarUrl} alt="Avatar" />
-      <h1>{name}</h1>
-      <p className="lead">{login}</p>
-      <p>{bio}</p>
+      <div className="container section">
+        <img src={avatarUrl} alt="Avatar" />
+        <h1>{name}</h1>
+        <p className="lead">{login}</p>
+        <p>{bio}</p>
 
-      <style jsx>{`
+        <style jsx>{`
         img {
           max-width: 200px;
           border-radius: 0.5rem;
@@ -37,6 +38,7 @@ const Profile = props => {
           color: #6a737d;
         }
       `}</style>
+      </div>
     </Layout>
   )
 }

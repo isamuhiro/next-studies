@@ -3,55 +3,42 @@ import { logout } from '../utils/auth'
 
 const Header = props => (
   <header>
-    <nav>
-      <ul>
-        <li>
+    <nav className="navbar is-light" role="navigation" aria-label="main navigation">
+      <div className="navbar-brand">
+        <Link href="/">
+          <a className="navbar-item">
+            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
+          </a>
+        </Link>
+
+        <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navbarBasicExample" className="navbar-menu">
+        <div className="navbar-start">
           <Link href="/">
-            <a>Home</a>
+            <a className="navbar-item">Home</a>
           </Link>
-        </li>
-        <li>
           <Link href="/login">
-            <a>Login</a>
+            <a className="navbar-item">Login</a>
           </Link>
-        </li>
-        <li>
           <Link href="/profile">
-            <a>Profile</a>
+            <a className="navbar-item">Profile</a>
           </Link>
-        </li>
-        <li>
-          <button onClick={logout}>Logout</button>
-        </li>
-      </ul>
+        </div>
+      </div>
+
+      <div className="navbar-end">
+        <div className="navbar-item">
+          <div className="buttons">
+            <button className="button is-danger" onClick={logout}>Logout</button>
+          </div>
+        </div>
+      </div>
     </nav>
-    <style jsx>{`
-      ul {
-        display: flex;
-        list-style: none;
-        margin-left: 0;
-        padding-left: 0;
-      }
-
-      li {
-        margin-right: 1rem;
-      }
-
-      li:first-child {
-        margin-left: auto;
-      }
-
-      a {
-        color: #fff;
-        text-decoration: none;
-      }
-
-      header {
-        padding: 0.2rem;
-        color: #fff;
-        background-color: #333;
-      }
-    `}</style>
   </header>
 )
 
